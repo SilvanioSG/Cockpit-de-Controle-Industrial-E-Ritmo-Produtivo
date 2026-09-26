@@ -1,81 +1,100 @@
 # Cockpit de Controle Industrial & Ritmo Produtivo (CCIRP)
 
-> **Autor:** Silvanio Gois — Gestor de Operações e Negócios Orientado a Dados
->
-> **Contatos Profissionais:** [Website Oficial](https://www.silvaniogois.com.br?utm_source=gemini) | [LinkedIn](https://www.linkedin.com/in/silvanio-gois/?utm_source=gemini) | [GitHub](https://github.com/SilvanioSG?utm_source=gemini) | **E-mail:** sg@silvaniogois.com.br
->
-> **Demonstração Online:** [Acessar Relatório no Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiM2RkOTc2NGMtMGEzYy00OWFmLTkxZGMtMzNmYWIwZjFlMzE5IiwidCI6IjJlYmQyYzU0LWY1ZDMtNGVmYi05ZGE3LWU4Yzk0YmQyMWQzOSJ9&utm_source=gemini)
+**Autor:** Silvanio Gois — Gestor de Operações e Negócios Orientado a Dados  
+**Contatos Profissionais:** [Website Oficial](https://www.silvaniogois.com.br) | [LinkedIn](https://www.linkedin.com/in/silvanio-gois/) | [GitHub](https://github.com/SilvanioSG) | **E-mail:** sg@silvaniogois.com.br  
+**Demonstração Online:** [Acessar Dashboard Interativo no Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiM2RkOTc2NGMtMGEzYy00OWFmLTkxZGMtMzNmYWIwZjFlMzE5IiwidCI6IjJlYmQyYzU0LWY1ZDMtNGVmYi05ZGE3LWU4Yzk0YmQyMWQzOSJ9)
+
+---
 
 ## 1. Visão Geral do Projeto
 
-O **Cockpit de Controle Industrial & Ritmo Produtivo (CCIRP)** é uma solução analítica avançada desenvolvida para o Planejamento e Controle da Produção (PCP). A aplicação consolida dados transacionais extraídos da base corporativa `RitmoProdutivo.xlsx`, transformando-os em inteligência acionável de suporte à decisão executiva e operacional.
+O **Cockpit de Controle Industrial & Ritmo Produtivo (CCIRP)** é uma solução analítica de Business Intelligence desenvolvida para centralizar, monitorar e otimizar os indicadores de eficiência da operação fabril. A aplicação consome dados operacionais da base `RitmoProdutivo.xlsx` e os estrutura em visões táticas e executivas voltadas ao suporte de reuniões operacionais diárias (Daily) e alinhamentos de planejamento de vendas e operações (S&OP).
 
-O objetivo central é monitorar em tempo real os principais indicadores de eficiência fabril (KPIs), cruzando o planejado versus realizado, taxas de OEE, perdas por refugo e o alinhamento com a demanda comercial para reuniões de *Daily/S&OP*.
+O objetivo principal consiste em rastrear desvios de capacidade, taxas de eficiência global dos equipamentos (OEE), perdas por refugo de qualidade e o equilíbrio entre a taxa de produção real e as demandas comerciais.
+
+---
 
 ## 2. Metodologia Técnica e Arquitetura de Dados
 
-O projeto foi estruturado seguindo as melhores práticas de engenharia de Business Intelligence e modelagem dimensional:
+A solução foi desenvolvida seguindo as melhores práticas de modelagem dimensional e engenharia de BI:
 
-* **Modelagem de Dados (Star Schema):** Implementação de uma arquitetura centralizada unindo tabelas de fatos de produção a dimensões estruturadas, complementada por uma **Tabela Calendário** dedicada para suporte completo a operações de *Time Intelligence*.
+* **Tratamento e ETL (Power Query):** Sanitização, normalização e validação dos dados transacionais extraídos da planilha de origem (`RitmoProdutivo.xlsx`), garantindo a integridade relacional entre registros de produção, paradas e refugos.
+* **Modelagem Dimensional (Star Schema):** Estruturação de tabelas de fatos (operações fabris e vendas) conectadas a tabelas dimensão (Linhas, Produtos, Operadores e Tabela Calendário dedicada para operações avançadas de *Time Intelligence*).
+* **Modelagem de Métricas (DAX):** Formulação de cálculos para suportar os três pilares fundamentais do OEE e indicadores operacionais de capacidade:
+  $$\text{OEE} = \text{Disponibilidade} \times \text{Desempenho} \times \text{Qualidade}$$
+* **Design e UI/UX Industrial:** Interface em estilo dark mode corporativo, desenvolvida para reduzir a fadiga visual em ambientes de salas de controle e chão de fábrica, permitindo a pronta identificação de gargalos através de hierarquias visuais claras e codificação por cores funcionais.
 
-* **Tratamento e ETL (Power Query):** Limpeza, tipagem, consolidação de fontes e tratamento de inconsistências de registros fabris volumosos para garantir a integridade relacional.
+---
 
-* **Modelagem DAX (Cálculo Padrão):** Desenvolvimento de medidas analíticas estruturadas com expressões lógicas diretas e agregação contextuais para o cálculo dos pilares fundamentais do OEE:
-  
-  $$
-  OEE = Disponibilidade \times Desempenho \times Qualidade
-  $$
+## 3. Relatório Executivo e Telas do Cockpit
 
-* **UI/UX Industrial (Clean Design):** Interface projetada para ambientes corporativos e de chão de fábrica, com paletas de cores de alto contraste focadas na identificação rápida de anomalias (paradas de máquinas e índices de refugo).
+### Tela Inicial / Apresentação
+![Capa do Relatório](pagina0)
 
-## 3. Estrutura do Relatório e Navegação de Páginas
+---
 
-O relatório está distribuído em uma narrativa sequencial dividida em 5 seções principais:
+### Visão Executiva (Cockpit Gerencial)
+![Visão Executiva](pagina1)
 
-### Página 0: Capa / Início
-* **Objetivo:** Introdução executiva ao projeto, alinhamento de escopo, definições conceituais e sumário interativo para navegação no cockpit.
+* **Objetivo:** Fornecer à diretoria e à gerência um panorama imediato do desempenho global da fábrica e do cumprimento das metas corporativas.
+* **Métricas Consolidadas:**
+  * **OEE Global:** $56,57\%$
+  * **Produtividade / Desempenho:** $68,79\%$
+  * **Qualidade:** $89,62\%$
+  * **Disponibilidade:** $91,76\%$
+  * **Distribuição de Horas:** $92,39\%$ de Horas Disponíveis vs. $7,61\%$ de Horas Paradas.
 
-### Página 1: Visão Executiva (Cockpit Gerencial)
-* **Objetivo:** Oferecer um panorama rápido e consolidado do desempenho global da fábrica para a diretoria, respondendo ao alinhamento de metas de volume e eficiência.
-* **Métricas Principais:** 
-  * `% OEE`: $56,57\%$
-  * `% Produtividade`: $68,79\%$
-  * `% Qualidade`: $89,62\%$
-  * `% Disponibilidade`: $91,76\%$
-  * **Composição de Horas:** Horas Disponíveis ($92,39\%$) vs. Horas Paradas ($7,61\%$).
+---
 
-### Página 2: Desempenho de Produção e Ritmo (Foco Operacional)
-* **Objetivo:** Analisar o ritmo produtivo por linha ou equipamento, medindo desvios de capacidade e aderência ao plano de produção.
-* **Métricas Principais:** 
-  * `Qtd Produzida Total`: $54.123.698,00$ vs. `Qtd Planejada Total`: $78.680.000,00$.
-  * Tabela analítica detalhada por linha (Linha A à Linha E) contendo volume planejado, produzido, refugado, percentual de produtividade e horas paradas.
+### Desempenho de Produção e Ritmo (Foco Operacional)
+![Desempenho de Produção e Ritmo](pagina2)
 
-### Página 3: Qualidade, Perdas e OEE (Deep Dive)
-* **Objetivo:** Investigar as perdas fabris, focando estritamente na qualidade dos produtos (refugos) e nas paradas de máquinas que reduzem o OEE global.
-* **Métricas Principais:** 
-  * `Qtd Refugada Total`: $6.269.263,00$.
-  * Análise cruzada de produção vs. refugo por linha e por operador, destacando o ranking de horas paradas por operador e por equipamento.
+* **Objetivo:** Avaliar a aderência do ritmo produtivo ao plano definido pelo PCP, detalhando a performance por linha de fabricação.
+* **Análise de Capacidade:**
+  * **Quantidade Planejada Total:** $78.680.000,00$ unidades.
+  * **Quantidade Produzida Total:** $54.123.698,00$ unidades.
+  * **Aderência ao Plano:** Destaque para a Linha C com o maior volume planejado ($17,21\text{M}$ unidades) e a maior quantidade produzida ($12,01\text{M}$ unidades), apresentando $69,78\%$ de produtividade.
 
-### Página 4: Alinhamento de Demanda e Comercial (Supply vs. Demand)
-* **Objetivo:** Garantir que o ritmo produtivo da fábrica esteja em perfeita sincronia com as vendas e compromissos comerciais, mitigando riscos de rupturas de entrega ou superávits de estoque.
-* **Métricas Principais:** 
-  * `Quantidade Vendida`: $65.324.685,78$
-  * `Quantidade Produzida`: $54.123.698,00$
-  * `Cobertura Comercial (Saldo / Déficit)`: $-11.200.987,78$ (evidenciando gargalo de suprimento frente à demanda comercial).
+---
+
+### Qualidade, Perdas e OEE (Deep Dive)
+![Qualidade, Perdas e OEE](pagina3)
+
+* **Objetivo:** Diagnosticar os causadores de perda de eficiência, identificando o volume de materiais refugados e os gargalos de paradas por máquina e por operador.
+* **Diagnóstico de Perdas:**
+  * **Refugo Acumulado:** $6.269.263,00$ unidades rejeitadas no processo.
+  * **Análise por Recursos:** Correlação entre volume produzido, refugos por linha e o ranking de horas paradas por operador (liderado por Luiz Barbosa com $83,36$ horas paradas).
+
+---
+
+### Alinhamento de Demanda e Comercial (Supply vs. Demand)
+![Alinhamento de Demanda e Comercial](pagina4)
+
+* **Objetivo:** Confrontar a capacidade produtiva fabril com a demanda de vendas comercial, identificando riscos de desabastecimento ou sobre-estoque.
+* **Balanço Comercial:**
+  * **Quantidade Vendida:** $65.324.685,00$ unidades.
+  * **Quantidade Produzida:** $54.123.698,00$ unidades.
+  * **Cobertura Comercial (Déficit):** $-11.200.987,00$ unidades (evidenciando gargalo de suprimento frente à demanda do mercado).
+
+---
 
 ## 4. Análise Crítica e Insights Estratégicos
 
-1. **Lacuna de OEE e Desempenho:** Embora a Disponibilidade mecânica opere em patamares excelentes ($91,76\%$), o OEE consolidado atinge $56,57\%$. Isso decorre do baixo índice de Desempenho / Produtividade ($68,79\%$), indicando que os equipamentos operam com alta frequência, mas abaixo da cadência nominal de velocidade ou sofrem microparadas recorrentes.
-2. **Déficit Comercial (Supply Gap):** O comparativo entre a quantidade produzida ($54,12\text{M}$) e a quantidade comercializada ($65,32\text{M}$) revela um déficit de mais de $11,2\text{ milhões$ de unidades, demonstrando a necessidade urgente de revisão da capacidade produtiva ou redimensionamento do plano de suprimentos.
-3. **Impacto de Qualidade:** Com um volume de refugos superior a $6,2\text{ milhões}$ de peças e uma taxa de qualidade de $89,62\%$, há perdas significativas de matéria-prima e capacidade fabril passíveis de recuperação através de programas de melhoria contínua (Lean Manufacturing).
+1. **Gargalo de Performance (OEE):** Embora a taxa de **Disponibilidade** operacional seja elevada ($91,76\%$), o **OEE Global** é penalizado ($56,57\%$) devido à baixa taxa de **Produtividade/Desempenho** ($68,79\%$). Isso indica que o maquinário opera durante a maior parte do tempo programado, porém abaixo da velocidade nominal ou sofrendo microparadas não mapeadas.
+2. **Defasagem entre Demanda e Produção (Supply Gap):** O déficit comercial de mais de $11,2\text{ milhões}$ de unidades revela um desalinhamento crítico entre a meta comercial e a capacidade de entrega da fábrica, exigindo aumento de cadência ou revisão das promessas de entrega no S&OP.
+3. **Custo de Não Qualidade:** A rejeição de $6,26\text{ milhões}$ de peças ($10,38\%$ de perda em refugo) aponta oportunidade imediata de ganho de margem e capacidade através de intervenções nos processos de controle de qualidade e manutenção preventiva.
+
+---
 
 ## 5. Estrutura de Arquivos do Repositório
 
-* `RitmoProdutivo.xlsx`: Base de dados transacional em Excel utilizada como fonte.
-* `RitmoProdutivo.pbix`: Arquivo de projeto do Power BI contendo modelo de dados, relações e layouts.
-* `RitmoProdutivo.pdf`: Relatório executivo compilado em PDF.
-* `pagina0` a `pagina4`: Mapeamento e estruturação visual das telas que compõem o dashboard.
+* `RitmoProdutivo.xlsx`: Base de dados transacional bruta utilizada na carga de dados.
+* `RitmoProdutivo.pbix`: Arquivo do Power BI com o modelo relacional, DAX e painéis visuais.
+* `RitmoProdutivo.pdf`: Exportação oficial do relatório em formato PDF para distribuição offline.
+* `pagina0`, `pagina1`, `pagina2`, `pagina3`, `pagina4`: Imagens de alta resolução representando as páginas do dashboard.
+
+---
 
 ## 6. Licença
 
-Este projeto é desenvolvido para fins de demonstração de competência sênior em gestão de operações, PCP e arquitetura de Business Intelligence. Todos os direitos reservados ao autor.
+Este projeto foi criado por **Silvanio Gois** para demonstrar aplicação prática de Business Intelligence e gestão de operações orientada a dados. Todos os direitos reservados.
