@@ -87,7 +87,7 @@ A solução foi desenvolvida seguindo as melhores práticas de modelagem dimensi
 ---
 
 ## 5. Estrutura de Arquivos do Repositório
-Nota: Cenário fictício desenvolvido para demonstrar habilidades técnicas e capacidade de análise de dados.
+#### Nota: Cenário fictício desenvolvido para demonstrar habilidades técnicas e capacidade de análise de dados.
 
 * `RitmoProdutivo.xlsx`: Base de dados transacional bruta utilizada na carga de dados.
 * `RitmoProdutivo.pbix`: Arquivo do Power BI com o modelo relacional, DAX e painéis visuais.
