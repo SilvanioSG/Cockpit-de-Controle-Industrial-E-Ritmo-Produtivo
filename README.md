@@ -34,7 +34,7 @@ A solução foi desenvolvida seguindo as melhores práticas de modelagem dimensi
 ---
 
 ### Visão Executiva (Cockpit Gerencial)
-![Visão Executiva](pagina1)
+![Visão Executiva](pagina1.png)
 
 * **Objetivo:** Fornecer à diretoria e à gerência um panorama imediato do desempenho global da fábrica e do cumprimento das metas corporativas.
 * **Métricas Consolidadas:**
@@ -47,7 +47,7 @@ A solução foi desenvolvida seguindo as melhores práticas de modelagem dimensi
 ---
 
 ### Desempenho de Produção e Ritmo (Foco Operacional)
-![Desempenho de Produção e Ritmo](pagina2)
+![Desempenho de Produção e Ritmo](pagina2.png)
 
 * **Objetivo:** Avaliar a aderência do ritmo produtivo ao plano definido pelo PCP, detalhando a performance por linha de fabricação.
 * **Análise de Capacidade:**
@@ -58,7 +58,7 @@ A solução foi desenvolvida seguindo as melhores práticas de modelagem dimensi
 ---
 
 ### Qualidade, Perdas e OEE (Deep Dive)
-![Qualidade, Perdas e OEE](pagina3)
+![Qualidade, Perdas e OEE](pagina3.png)
 
 * **Objetivo:** Diagnosticar os causadores de perda de eficiência, identificando o volume de materiais refugados e os gargalos de paradas por máquina e por operador.
 * **Diagnóstico de Perdas:**
@@ -68,7 +68,7 @@ A solução foi desenvolvida seguindo as melhores práticas de modelagem dimensi
 ---
 
 ### Alinhamento de Demanda e Comercial (Supply vs. Demand)
-![Alinhamento de Demanda e Comercial](pagina4)
+![Alinhamento de Demanda e Comercial](pagina4.png)
 
 * **Objetivo:** Confrontar a capacidade produtiva fabril com a demanda de vendas comercial, identificando riscos de desabastecimento ou sobre-estoque.
 * **Balanço Comercial:**
@@ -87,6 +87,7 @@ A solução foi desenvolvida seguindo as melhores práticas de modelagem dimensi
 ---
 
 ## 5. Estrutura de Arquivos do Repositório
+Nota: Cenário fictício desenvolvido para demonstrar habilidades técnicas e capacidade de análise de dados.
 
 * `RitmoProdutivo.xlsx`: Base de dados transacional bruta utilizada na carga de dados.
 * `RitmoProdutivo.pbix`: Arquivo do Power BI com o modelo relacional, DAX e painéis visuais.
