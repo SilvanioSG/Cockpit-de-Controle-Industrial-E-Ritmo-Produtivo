@@ -29,7 +29,7 @@ A solução foi desenvolvida seguindo as melhores práticas de modelagem dimensi
 ## 3. Relatório Executivo e Telas do Cockpit
 
 ### Tela Inicial / Apresentação
-![Capa do Relatório](pagina0)
+![Capa do Relatório](pagina0.png)
 
 ---
 
