@@ -93,6 +93,7 @@ A solução foi desenvolvida seguindo as melhores práticas de modelagem dimensi
 * `RitmoProdutivo.pbix`: Arquivo do Power BI com o modelo relacional, DAX e painéis visuais.
 * `RitmoProdutivo.pdf`: Exportação oficial do relatório em formato PDF para distribuição offline.
 * `pagina0`, `pagina1`, `pagina2`, `pagina3`, `pagina4`: Imagens de alta resolução representando as páginas do dashboard.
+* `SG_Site`: Imagem utilizada como logo da página início.
 
 ---
 
